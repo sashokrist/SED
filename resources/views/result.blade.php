@@ -16,16 +16,28 @@
 <body>
 <div class="container">
         <div class="row justify-content-center">
-            <div class="card">
-                <div class="col-6">
+            <header class="text-center">
+                <h1>SED Result</h1>
+            </header>
+            <div class="card col-md-8">
+                <div class="col-10">
                     <h3> Input:</h3><h4>{{ $input }}</h4>
                     <h3> Pattern:</h3><h4>{{ $pattern }}</h4>
                     <h3> Replace:</h3><h4>{{ $replace }}</h4>
-                    <h3> Output: </h3><h4>{{ $output }}</h4>
+                    <textarea onfocus="copy()" id="copy" class="form-control" cols="30" rows="10">{{ $output }}</textarea>
+                    <a href="{{ route('/') }}" class="btn btn-primary">Back to SED</a>
                 </div>
             </div>
-            <a href="{{ route('/') }}" class="btn btn-primary">Back to SED</a>
+
         </div>
 </div>
+<script type="text/javascript">
+    function copy()
+    {
+        var copyTextarea = document.getElementById("copy");
+        copyTextarea.select(); //select the text area
+        document.execCommand("copy"); //copy to clipboard
+    }
+</script>
 </body>
 </html>

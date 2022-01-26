@@ -28,10 +28,11 @@
                     @csrf
                     <div class="mb-3">
                         <h4>Upload text file</h4>
-                        <input type="file" class="form-control" name="input">
+                        <input type="file" id="inputfile" class="form-control" name="input">
                         <span style="color: red; font-weight: bold">*txt</span>
+                        <br>
                         <h4>Or type/paste your text</h4>
-                        <textarea name="input2" class="form-control" cols="30" rows="10" placeholder="Your text here..."></textarea>
+                        <textarea id="output" name="input2" class="form-control" cols="30" rows="10" placeholder="Your text here..."></textarea>
                     </div>
                     <div class="mb-3">
                         <h4>Word to be replaced: </h4>
@@ -46,5 +47,16 @@
             </div>
         </div>
 </div>
+<script type="text/javascript">
+    document.getElementById('inputfile')
+        .addEventListener('change', function() {
+            var fr=new FileReader();
+            fr.onload=function(){
+                document.getElementById('output')
+                    .textContent=fr.result;
+            }
+            fr.readAsText(this.files[0]);
+        })
+</script>
 </body>
 </html>
