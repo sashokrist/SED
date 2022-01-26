@@ -23,7 +23,7 @@ How to run it?
 3. Open Git bash or PowerShell
 4. Navigate to project directory ex: cd /c//xampp/htdocs/sed
 5. composer global require "laravel/installer=~1.1"
-6. git@github.com:sashokrist/SED.git
+6. git clone git@github.com:sashokrist/SED.git
 7. composer install
 8. cp .env.example .env
 9. php artisan key:generate
